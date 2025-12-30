@@ -12,12 +12,12 @@ import java.util.List;
 public interface TransactionRepository extends JpaRepository<Transaction, Long> {
 
 
-    @Query("SELECT t FROM Transaction  t " +
+    @Query("SELECT t FROM TransactionDTO  t " +
             "WHERE YEAR(t.createdAt) = :year AND MONTH(t.createdAt) = :month")
     List<Transaction> findAllByMonthAndYear(@Param("month") int month, @Param("year") int year);
 
     //we are searching them field; Transaction's description, note, status, product's name, sku
-    @Query("SELECT t FROM Transaction t " +
+    @Query("SELECT t FROM TransactionDTO t " +
             "LEFT JOIN t.product p " +
             "WHERE (:searchText IS NULL OR " +
             "LOWER(t.description) LIKE LOWER(CONCAT('%', :searchText, '%')) OR " +
