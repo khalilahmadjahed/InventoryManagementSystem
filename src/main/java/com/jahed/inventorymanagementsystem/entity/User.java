@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,7 +21,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @NotBlank(message = "Name is required!")
     private String name;
@@ -40,7 +41,7 @@ public class User {
     private UserRole role;
 
     @OneToMany(mappedBy = "user")
-    private List<Transation> transactions;
+    private List<Transaction> transactions;
 
     @Column(name = "created_at")
     private final LocalDateTime createdAt = LocalDateTime.now();
