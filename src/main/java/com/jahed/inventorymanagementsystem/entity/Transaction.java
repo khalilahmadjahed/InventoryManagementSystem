@@ -30,7 +30,7 @@ public class Transaction {
     private TransactionType transactionType;
 
     @Enumerated(EnumType.STRING)
-    private TransactionStatus transactionStatus;
+    private TransactionStatus status;
 
     private String description;
 
@@ -57,7 +57,7 @@ public class Transaction {
                 ", totalProducts=" + totalProducts +
                 ", totalPrice=" + totalPrice +
                 ", transactionType=" + transactionType +
-                ", transactionStatus=" + transactionStatus +
+                ", transactionStatus=" + status +
                 ", description='" + description + '\'' +
                 ", updatedAt=" + updatedAt +
                 ", createdAt=" + createdAt +
