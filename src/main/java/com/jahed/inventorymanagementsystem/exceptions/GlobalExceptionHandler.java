@@ -1,4 +1,4 @@
-package com.jahed.inventorymanagementsystem.exception;
+package com.jahed.inventorymanagementsystem.exceptions;
 
 import com.jahed.inventorymanagementsystem.dto.Response;
 import org.springframework.http.HttpStatus;

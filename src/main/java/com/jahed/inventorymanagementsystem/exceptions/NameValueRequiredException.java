@@ -1,4 +1,4 @@
-package com.jahed.inventorymanagementsystem.exception;
+package com.jahed.inventorymanagementsystem.exceptions;
 
 public class NameValueRequiredException extends RuntimeException{
     public NameValueRequiredException(String message){

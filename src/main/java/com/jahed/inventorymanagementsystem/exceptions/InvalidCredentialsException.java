@@ -1,4 +1,4 @@
-package com.jahed.inventorymanagementsystem.exception;
+package com.jahed.inventorymanagementsystem.exceptions;
 
 public class InvalidCredentialsException extends RuntimeException{
     public InvalidCredentialsException(String message){
