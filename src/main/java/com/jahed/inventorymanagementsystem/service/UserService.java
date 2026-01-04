@@ -9,7 +9,7 @@ import com.jahed.inventorymanagementsystem.entity.User;
 public interface UserService {
 
     Response registerUser(RegisterRequest registerRequest);
-    Response loginUser(LoginRequest registerRequest);
+    Response loginUser(LoginRequest loginRequest);
     Response getAllUsers();
     User getCurrentLogedInUser();
     Response updateUser(Long id, UserDTO userDTO);
