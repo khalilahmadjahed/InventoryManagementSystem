@@ -1,6 +1,5 @@
 package com.jahed.inventorymanagementsystem.service.impl;
 
-import com.jahed.inventorymanagementsystem.dto.CategoryDTO;
 import com.jahed.inventorymanagementsystem.dto.ProductDTO;
 import com.jahed.inventorymanagementsystem.dto.Response;
 import com.jahed.inventorymanagementsystem.entity.Category;
@@ -37,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Response saveProduct(ProductDTO productDTO, MultipartFile imageFile) {
 
-        Category category = categoryRepository.findById(productDTO.getProductId())
+        Category category = categoryRepository.findById(productDTO.getCategoryId())
                 .orElseThrow(() -> new NotFoundException("Category not found"));
 
         //map out productDTO to Product entity
@@ -49,6 +48,7 @@ public class ProductServiceImpl implements ProductService {
                 .description(productDTO.getDescription())
                 .category(category)
                 .build();
+
         if (imageFile != null){
             String imagePath = saveImage(imageFile);
             productToSave.setImageUrl(imagePath);
@@ -78,7 +78,7 @@ public class ProductServiceImpl implements ProductService {
 
         //Check if category is to be changed for the product
         if (productDTO.getCategoryId() != null && productDTO.getCategoryId() > 0){
-            Category category = categoryRepository.findById(productDTO.getProductId())
+            Category category = categoryRepository.findById(productDTO.getCategoryId())
                     .orElseThrow(() -> new NotFoundException("Category not found"));
             existingProduct.setCategory(category);
         }
